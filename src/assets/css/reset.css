@@ -1,0 +1,68 @@
+/*********************************************************************
+/* Best CSS Reset 2024
+/* https://github.com/Lazzzer00/Best-CSS-Reset-2024
+/********************************************************************/
+
+/* Set element size to include border. */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding on all elements. */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Turn off decoration on all lists. */
+ul[role='list'], ol[role='list'] {
+  list-style: none;
+}
+
+/* Set the scroll behavior of all scrollable elements to smooth. */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/*
+  Make the link underlines and normal underlines skip the "hooky"
+  letters and symbols (q, y, j, g). Makes them look more natural.
+*/
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Image and video settings. */
+img, picture, svg, video, canvas {
+  max-width: 100%;              /* Make images responsive.        */
+  height: auto;                 /* Make images responsive.        */
+  vertical-align: middle;       /* Align inline images with text. */
+  font-style: italic;           /* Make alt text in italic.       */
+  background-repeat: no-repeat; /* Set background image as cover. */
+  background-size: cover;       /* Set background image as cover. */
+}
+
+/* Make these elements inherit fonts from parent elements. */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* Skip animations for people who don't want them. */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+      scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+      transition: none;
+  }
+}
+
+/* Make elements full screen with smooth scrolling. */
+body, html {
+  height: 100%;
+  scroll-behavior: smooth;
+}

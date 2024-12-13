@@ -1,0 +1,102 @@
+/*********************************************************************
+/* icomoon icons
+/* https://icomoon.io
+/********************************************************************/
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('src/assets/fonts/icomoon/icomoon.eot?b4a4vt');
+  src: url('src/assets/fonts/icomoon/icomoon.eot?b4a4vt#iefix') format('embedded-opentype'),
+    url('src/assets/fonts/icomoon/icomoon.ttf?b4a4vt') format('truetype'),
+    url('src/assets/fonts/icomoon/icomoon.woff?b4a4vt') format('woff'),
+    url('src/assets/fonts/icomoon/icomoon.svg?b4a4vt#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='icon-'], [class*=' icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts. */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Available fonts */
+.icon-discord:before  { content: '\e900'; }
+.icon-keyboard:before { content: '\e955'; }
+.icon-cog:before      { content: '\e994'; }
+.icon-info:before     { content: '\ea0c'; }
+.icon-play3:before    { content: '\ea1c'; }
+.icon-pause2:before   { content: '\ea1d'; }
+.icon-stop2:before    { content: '\ea1e'; }
+.icon-github:before   { content: '\eab0'; }
+
+/*********************************************************************
+/* IBM Plex fonts
+/* https://github.com/IBM/plex
+/********************************************************************/
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  /* font-feature-settings: "ss02"; */
+  font-display: block;
+  src: local('IBM Plex Sans'), local('IBMPlexSans'),
+   url('src/assets/fonts/IBM-Plex/Sans/woff2/IBMPlexSans-Regular.woff2') format('woff2'),
+   url('src/assets/fonts/IBM-Plex/Sans/woff/IBMPlexSans-Regular.woff') format('woff'),
+   url('src/assets/fonts/IBM-Plex/Sans/eot/IBMPlexSans-Regular.eot') format('embedded-opentype'),
+   url('src/assets/fonts/IBM-Plex/Sans/otf/IBMPlexSans-Regular.otf') format('opentype'),
+   url('src/assets/fonts/IBM-Plex/Sans/ttf/IBMPlexSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  /* font-feature-settings: "ss02"; */
+  font-display: block;
+  src: local('IBM Plex Sans'), local('IBMPlexSans'),
+   url('src/assets/fonts/IBM-Plex/Sans/woff2/IBMPlexSans-Text.woff2') format('woff2'),
+   url('src/assets/fonts/IBM-Plex/Sans/woff/IBMPlexSans-Text.woff') format('woff'),
+   url('src/assets/fonts/IBM-Plex/Sans/eot/IBMPlexSans-Text.eot') format('embedded-opentype'),
+   url('src/assets/fonts/IBM-Plex/Sans/otf/IBMPlexSans-Text.otf') format('opentype'),
+   url('src/assets/fonts/IBM-Plex/Sans/ttf/IBMPlexSans-Text.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  /* font-feature-settings: "ss02"; */
+  font-display: block;
+  src: local('IBM Plex Mono'), local('IBMPlexMono'),
+   url('src/assets/fonts/IBM-Plex/Mono/woff2/IBMPlexMono-Regular.woff2') format('woff2'),
+   url('src/assets/fonts/IBM-Plex/Mono/woff/IBMPlexMono-Regular.woff') format('woff'),
+   url('src/assets/fonts/IBM-Plex/Mono/eot/IBMPlexMono-Regular.eot') format('embedded-opentype'),
+   url('src/assets/fonts/IBM-Plex/Mono/otf/IBMPlexMono-Regular.otf') format('opentype'),
+   url('src/assets/fonts/IBM-Plex/Mono/ttf/IBMPlexMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: italic;
+  font-weight: 400;
+  /* font-feature-settings: "ss02"; */
+  font-display: block;
+  src: local('IBM Plex Mono'), local('IBMPlexMono'),
+   url('src/assets/fonts/IBM-Plex/Mono/woff2/IBMPlexMono-Italic.woff2') format('woff2'),
+   url('src/assets/fonts/IBM-Plex/Mono/woff/IBMPlexMono-Italic.woff') format('woff'),
+   url('src/assets/fonts/IBM-Plex/Mono/eot/IBMPlexMono-Italic.eot') format('embedded-opentype'),
+   url('src/assets/fonts/IBM-Plex/Mono/otf/IBMPlexMono-Italic.otf') format('opentype'),
+   url('src/assets/fonts/IBM-Plex/Mono/ttf/IBMPlexMono-Italic.ttf') format('truetype');
+}

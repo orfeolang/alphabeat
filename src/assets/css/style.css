@@ -1,0 +1,30 @@
+a {
+  font-weight: 500;
+  color: #abb2bf;
+  transition: 0.75s;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #56b6c2;
+}
+
+:root {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+  line-height: 1.4;
+  color: #abb2bf;
+  background-color: #1b1b1f;
+}
+
+#app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
