@@ -1,18 +1,22 @@
-import readline from 'readline'
-import fs from 'fs'
+import readline from 'node:readline'
+import fs from 'node:fs'
 
 const path = {
   sounds: './src/assets/sounds/',
   soundfiletype: '../../config/sounds/soundfiletype.txt',
   soundsconfig: '../../config/sounds/sounds.txt',
+  soundgroupsconfig: '../../config/sounds/soundgroups.txt',
 }
 
 /* -------------------------------------------------------------------
-  Get soundfiletype
+  Helpers
 ------------------------------------------------------------------- */
+const spacify_ = str => str.replaceAll('_', ' ')
+const extractColor = str => str.split(':')[1]
+const jsonify = payload => JSON.stringify(payload, null, 4) + '\n'
 
-async function getFirstLine(pathToFile) {
-  const readable = fs.createReadStream(pathToFile)
+async function getFirstLine(filepath) {
+  const readable = fs.createReadStream(filepath)
   const reader = readline.createInterface({ input: readable })
   const line = await new Promise((resolve) => {
     reader.on('line', (line) => {
@@ -24,19 +28,53 @@ async function getFirstLine(pathToFile) {
   return line
 }
 
+/* -------------------------------------------------------------------
+  Get soundfiletype
+------------------------------------------------------------------- */
 const soundfiletype = await getFirstLine(path.soundfiletype)
 
 /* -------------------------------------------------------------------
-  Get sounds JSON
+  makeSoundGroupsJSON
 ------------------------------------------------------------------- */
 
-async function makeSoundsJSON(pathToFile) {
-  const readable = fs.createReadStream(pathToFile)
+async function makeSoundGroupsJSON(filepath) {
+  const readable = fs.createReadStream(filepath)
+  const reader = readline.createInterface({ input: readable })
+
+  const json = await new Promise((resolve) => {
+    const soundgroups = []
+    reader.on('line', line => {
+      const parts = line.split(/\s+/)
+      const soundgroup = {
+        id:            Number(parts[0]),
+        name:          parts[1],
+        desc:          spacify_(parts[2]),
+        colorCursor:   extractColor(parts[3]),
+        colorProgress: extractColor(parts[4]),
+        colorWave:     extractColor(parts[5]),
+      }
+      soundgroups.push(soundgroup)
+    })
+
+    reader.on('close', () => {
+      resolve(jsonify(soundgroups))
+    })
+  })
+  return json
+}
+
+const soundgroups = await makeSoundGroupsJSON(path.soundgroupsconfig)
+console.log(soundgroups)
+
+/* -------------------------------------------------------------------
+  makeSoundsJSON
+------------------------------------------------------------------- */
+async function makeSoundsJSON(filepath) {
+  const readable = fs.createReadStream(filepath)
   const reader = readline.createInterface({ input: readable })
 
   const json = await new Promise((resolve) => {
     const sounds = []
-    const spacify_ = str => str.replaceAll('_', ' ')
     reader.on('line', line => {
       const parts = line.split(/\s+/)
       const sound = {
@@ -56,12 +94,11 @@ async function makeSoundsJSON(pathToFile) {
     })
 
     reader.on('close', () => {
-      const json = JSON.stringify(sounds, null, 4) + '\n'
-      resolve(json)
+      resolve(jsonify(sounds))
     })
   })
   return json
 }
 
-const j = await makeSoundsJSON(path.soundsconfig)
-console.log(j)
+const soundsJSON = await makeSoundsJSON(path.soundsconfig)
+// console.log(soundsJSON)
