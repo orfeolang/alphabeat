@@ -1,30 +1,53 @@
-a {
-  font-weight: 500;
+:root {
+  background-image: linear-gradient(
+    to right,
+    #1b1b1f,
+    #222244
+  );
   color: #abb2bf;
-  transition: 0.75s;
+  color-scheme: dark;
+  font-family: 'IBM Plex Sans', sans-serif;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem; /* 16px */
+  font-synthesis: none;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+a {
+  color: #56b6c2bb;
+  font-weight: 500;
   text-decoration: inherit;
+  transition: 0.75s;
 }
 
 a:hover {
   color: #56b6c2;
 }
 
-:root {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 1rem; /* 16px */
-  font-weight: 400;
-  font-synthesis: none;
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color-scheme: dark;
-  line-height: 1.4;
-  color: #abb2bf;
-  background-color: #1b1b1f;
-}
-
 #app {
-  min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+/* Beta banner */
+body:after{
+  background: #EE8E4A;
+  color: #ffffff;
+  content: 'BETA';
+  font-size: 13px;
+  font-weight: bold;
+  height: 25px;
+  left: -20px;
+  letter-spacing: 2px;
+  line-height: 27px;
+  position: fixed;
+  text-align: center;
+  text-indent: 3px;
+  top: 7px;
+  transform:rotate(-45deg);
+  width: 80px;
 }

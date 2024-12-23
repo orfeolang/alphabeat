@@ -1,3 +1,6 @@
+# Built db files
+src/db/json
+
 # Logs
 logs
 *.log

@@ -1,0 +1,6 @@
+cymbal colorCursor:#5c6370 colorProgress:#89ca7877 colorWave:#89ca78
+drum   colorCursor:#5c6370 colorProgress:#61afef77 colorWave:#61afef
+kick   colorCursor:#5c6370 colorProgress:#f4474777 colorWave:#f44747
+perc   colorCursor:#5c6370 colorProgress:#d55fde77 colorWave:#d55fde
+synth  colorCursor:#5c6370 colorProgress:#be504677 colorWave:#be5046
+voice  colorCursor:#5c6370 colorProgress:#e5c07b77 colorWave:#e5c07b

@@ -5,18 +5,18 @@
 
 @font-face {
   font-family: 'icomoon';
-  src: url('src/assets/fonts/icomoon/icomoon.eot?b4a4vt');
-  src: url('src/assets/fonts/icomoon/icomoon.eot?b4a4vt#iefix') format('embedded-opentype'),
-    url('src/assets/fonts/icomoon/icomoon.ttf?b4a4vt') format('truetype'),
-    url('src/assets/fonts/icomoon/icomoon.woff?b4a4vt') format('woff'),
-    url('src/assets/fonts/icomoon/icomoon.svg?b4a4vt#icomoon') format('svg');
+  src: url('src/assets/fonts/icomoon/icomoon.eot?ys3j8q');
+  src: url('src/assets/fonts/icomoon/icomoon.eot?ys3j8q#iefix') format('embedded-opentype'),
+   url('src/assets/fonts/icomoon/icomoon.ttf?ys3j8q') format('truetype'),
+   url('src/assets/fonts/icomoon/icomoon.woff?ys3j8q') format('woff'),
+   url('src/assets/fonts/icomoon/icomoon.svg?ys3j8q#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
 [class^='icon-'], [class*=' icon-'] {
-  /* use !important to prevent issues with browser extensions that change fonts. */
+  /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: never;
   font-style: normal;
@@ -30,15 +30,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Available fonts */
-.icon-discord:before  { content: '\e900'; }
-.icon-keyboard:before { content: '\e955'; }
-.icon-cog:before      { content: '\e994'; }
-.icon-info:before     { content: '\ea0c'; }
-.icon-play3:before    { content: '\ea1c'; }
-.icon-pause2:before   { content: '\ea1d'; }
-.icon-stop2:before    { content: '\ea1e'; }
-.icon-github:before   { content: '\eab0'; }
+.icon-creative-commons-zero:before { content: '\e901'; }
+.icon-creative-commons-by:before   { content: '\e902'; }
+.icon-discord:before               { content: '\e900'; }
+.icon-arrow-down:before            { content: '\e905'; }
+.icon-arrow-up:before              { content: '\e907'; }
+.icon-select-arrows:before         { content: '\e906'; }
+.icon-external-link:before         { content: '\e903'; }
+.icon-github:before                { content: '\e904'; }
 
 /*********************************************************************
 /* IBM Plex fonts

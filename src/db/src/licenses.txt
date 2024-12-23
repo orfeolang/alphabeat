@@ -1,0 +1,3 @@
+CC0 Creative_Commons_Zero https://creativecommons.org/public-domain/cc0/
+A3  Attribution_3.0       https://creativecommons.org/licenses/by/3.0/deed.en
+A4  Attribution_4.0       https://creativecommons.org/licenses/by/4.0/deed.en

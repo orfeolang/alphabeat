@@ -4,12 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "dev": "npm run build_db && vite",
+    "build": "npm run build_db && vue-tsc -b && vite build",
+    "build_db": "node src/db/build.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.5.13"
+    "vue": "^3.5.13",
+    "wavesurfer.js": "^7.8.11"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
