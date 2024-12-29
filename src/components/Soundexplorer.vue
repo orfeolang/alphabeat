@@ -323,9 +323,9 @@
     margin-top: 10px;
 
     th, td {
-      padding: 10px 8px 8px 8px;
       background: #11111144;
       border: 1px solid #111111;
+      padding: 10px 8px 8px 8px;
     }
 
     th {
