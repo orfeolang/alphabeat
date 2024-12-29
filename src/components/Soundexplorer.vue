@@ -71,103 +71,105 @@
 <template>
   <div>
     <h2>Sound Explorer</h2>
-    <div class="search">
-      <input type="text" v-model="search" placeholder="search.." />
-      <span class="count"> {{ filteredShallowRows().length }} </span>
-    </div>
-    <div v-if="filteredShallowRows().length > 0">
-      <table class="sounds">
-        <thead>
-          <tr>
-            <th
-              v-for="header in headers"
-              :class="headerNameToClassName(header.name)"
-            >
-              {{ header.name }}
-              <span
-                v-if="header.name === 'url'"
-                class="icon-external-link"
-              ></span>
-            </th>
-          </tr>
-          <tr>
-            <th
-              v-for="header in headers"
-              :class="headerNameToClassName(header.name)"
-            >
-              <template v-if="header.sortKey !== null">
-                <button @click="sortData(header.name, header.sortKey, 'ASC')">
-                  <span
-                    class="icon-arrow-down"
-                    :class="{
-                      active: header.dir === 'ASC',
-                     chosen: header.dir === 'ASC' && header.name === sortingHeader.name,
-                    }"
-                  >
-                  </span>
-                </button>
-                <button @click="sortData(header.name, header.sortKey, 'DESC')">
-                  <span
-                    class="icon-arrow-up"
-                    :class="{
-                      active: header.dir === 'DESC',
-                      chosen: header.dir === 'DESC' && header.name === sortingHeader.name,
-                    }"
-                  >
-                  </span>
-                </button>
-              </template>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="(sound, index) in filteredShallowRows()"
-            :class="[sound.group.name, zebraClass(index)]"
-          >
-            <td class="number"> {{ sound.number     }} </td>
-            <td class="group">  {{ sound.group.name }} </td>
-            <td class="sound">
-              <Wavesurfer
-                :height=40
-                :width=80
-                :colorCursor=sound.group.color.cursor
-                :colorProgress=sound.group.color.progress
-                :colorWave=sound.group.color.wave
-                :url=sound.filepath
-                :key=sound.filepath
-              />
-            </td>
-            <td class="label"> {{ sound.label }} </td>
-            <td class="name">  {{ sound.name  }} </td>
-            <td class="license">
-              <span
-                :class="licenseCodeToIconClass(sound.attribution.license.code)"
+    <div class="soundexplorer-wrapper">
+      <div class="search">
+        <input type="text" v-model="search" placeholder="search.." />
+        <span class="count"> {{ filteredShallowRows().length }} </span>
+      </div>
+      <div v-if="filteredShallowRows().length > 0">
+        <table class="sounds">
+          <thead>
+            <tr>
+              <th
+                v-for="header in headers"
+                :class="headerNameToClassName(header.name)"
               >
-              </span>
-            </td>
-            <td class="author">     {{ sound.attribution.author     }} </td>
-            <td class="sourcename"> {{ sound.attribution.sourcename }} </td>
-            <td class="url">
-              <a :href="sound.attribution.url">
-                {{ sound.attribution.url }}
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <table class="legend">
-        <tbody>
-          <tr>
-            <th><span class="icon-creative-commons-zero"></span></th>
-            <td>Creative Commons Zero</td>
-          </tr>
-          <tr>
-            <th><span class="icon-creative-commons-by"></span></th>
-            <td>Creative Commons Attribution 3.0 or 4.0</td>
-          </tr>
-        </tbody>
-      </table>
+                {{ header.name }}
+                <span
+                  v-if="header.name === 'url'"
+                  class="icon-external-link"
+                ></span>
+              </th>
+            </tr>
+            <tr>
+              <th
+                v-for="header in headers"
+                :class="headerNameToClassName(header.name)"
+              >
+                <template v-if="header.sortKey !== null">
+                  <button @click="sortData(header.name, header.sortKey, 'ASC')">
+                    <span
+                      class="icon-arrow-down"
+                      :class="{
+                        active: header.dir === 'ASC',
+                       chosen: header.dir === 'ASC' && header.name === sortingHeader.name,
+                      }"
+                    >
+                    </span>
+                  </button>
+                  <button @click="sortData(header.name, header.sortKey, 'DESC')">
+                    <span
+                      class="icon-arrow-up"
+                      :class="{
+                        active: header.dir === 'DESC',
+                        chosen: header.dir === 'DESC' && header.name === sortingHeader.name,
+                      }"
+                    >
+                    </span>
+                  </button>
+                </template>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="(sound, index) in filteredShallowRows()"
+              :class="[sound.group.name, zebraClass(index)]"
+            >
+              <td class="number"> {{ sound.number     }} </td>
+              <td class="group">  {{ sound.group.name }} </td>
+              <td class="sound">
+                <Wavesurfer
+                  :height=40
+                  :width=80
+                  :colorCursor=sound.group.color.cursor
+                  :colorProgress=sound.group.color.progress
+                  :colorWave=sound.group.color.wave
+                  :url=sound.filepath
+                  :key=sound.filepath
+                />
+              </td>
+              <td class="label"> {{ sound.label }} </td>
+              <td class="name">  {{ sound.name  }} </td>
+              <td class="license">
+                <span
+                  :class="licenseCodeToIconClass(sound.attribution.license.code)"
+                >
+                </span>
+              </td>
+              <td class="author">     {{ sound.attribution.author     }} </td>
+              <td class="sourcename"> {{ sound.attribution.sourcename }} </td>
+              <td class="url">
+                <a :href="sound.attribution.url">
+                  {{ sound.attribution.url }}
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="legend">
+          <tbody>
+            <tr>
+              <th><span class="icon-creative-commons-zero"></span></th>
+              <td>Creative Commons Zero</td>
+            </tr>
+            <tr>
+              <th><span class="icon-creative-commons-by"></span></th>
+              <td>Creative Commons Attribution 3.0 or 4.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
@@ -179,11 +181,14 @@
     text-align: center;
   }
 
+  .soundexplorer-wrapper {
+    width: 1198px;
+  }
+
   .search {
     align-items: center;
     display: flex;
     margin-bottom: 10px;
-    width: 1198px; /* from Adding all th/td widths */
 
     input {
       background: #111111;
@@ -217,7 +222,18 @@
   }
 
   table.sounds {
-    width: 1198px; /* from Adding all th/td widths */
+    table-layout: fixed;
+    width: 100%;
+
+    th.number,     td.number     { width: 35px;  }
+    th.group,      td.group      { width: 69px;  }
+    th.sound,      td.sound      { width: 98px;  }
+    th.label,      td.label      { width: 65px;  }
+    th.name,       td.name       { width: 179px; }
+    th.license,    td.license    { width: 80px;  }
+    th.author,     td.author     { width: 160px; }
+    th.sourcename, td.sourcename { width: 263px; }
+    th.url,        td.url        { width: 249px; }
 
     th {
       background: #000000;
@@ -247,16 +263,6 @@
     td.number {
       color: #444;
     }
-
-    th.number,     td.number     { width: 35px;  }
-    th.group,      td.group      { width: 69px ; }
-    th.sound,      td.sound      { width: 98px;  }
-    th.label,      td.label      { width: 65px;  }
-    th.name,       td.name       { width: 179px; }
-    th.license,    td.license    { width: 80px;  }
-    th.author,     td.author     { width: 160px; }
-    th.sourcename, td.sourcename { width: 263px; }
-    th.url,        td.url        { width: 249px; }
 
     tr.even td { background: #111111;   }
     tr.odd  td { background: #11111144; }
