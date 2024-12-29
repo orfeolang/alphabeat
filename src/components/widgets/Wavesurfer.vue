@@ -28,7 +28,7 @@
       // Due to a Safari bug, backend must be
       // 'WebAudio' for Safari.
       // We could use 'MediaElement' for other
-      // browsers, by doing browser detection.
+      // browsers by doing browser detection.
       backend:      'WebAudio',
     })
 
