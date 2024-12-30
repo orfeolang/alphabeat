@@ -2,14 +2,14 @@
   import { useTemplateRef, onMounted } from 'vue'
   import Wavesurfer from 'wavesurfer.js'
 
-  const props = defineProps({
-    width:         { type: Number, required: true },
-    height:        { type: Number, required: true },
-    colorCursor:   { type: String, required: true },
-    colorProgress: { type: String, required: true },
-    colorWave:     { type: String, required: true },
-    url:           { type: String, required: true },
-  })
+  const props = defineProps<{
+    width:         number|"auto"
+    height:        number|"auto"
+    colorCursor:   string
+    colorProgress: string
+    colorWave:     string
+    url:           string
+  }>()
 
   const container = useTemplateRef('container')
 
