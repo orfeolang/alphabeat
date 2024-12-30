@@ -1,4 +1,4 @@
-/********************************************************************/
+// *******************************************************************
 // Find a value deep in an object given a dot separated path.
 //
 // Returns undefined if a value is not found.
@@ -8,7 +8,7 @@
 // path = 'a.deep.value'
 // const value = getDeepValue(obj, path)
 // console.log(value) // 2
-/********************************************************************/
+// *******************************************************************
 const getDeepValue = (obj: object, keysPath: string) => {
   function runner(obj: object, keysArr: Array<string>, keysArrIndex = 0) {
     const key = keysArr[keysArrIndex]
