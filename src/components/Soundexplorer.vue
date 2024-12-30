@@ -15,6 +15,7 @@
         : ''
   }
 
+  // !!! Could be a general helper.
   const zebraClass = (index: number) => {
     return index % 2 === 0 ? 'even' : 'odd'
   }
@@ -76,9 +77,9 @@
     <div class="soundexplorer-wrapper">
       <div class="search">
         <input type="text" v-model="search" placeholder="search.." />
-        <span class="count"> {{ filteredShallowSounds().length }} </span>
+        <span class="count"> {{ filteredShallowSounds().length }} </span> <!-- !!! We are recalculating this everytime, we need a computed property for the result. -->
       </div>
-      <div v-if="filteredShallowSounds().length > 0">
+      <div v-if="filteredShallowSounds().length > 0"> <!-- !!! We are recalculating this everytime, we need a computed property for the result. -->
         <table class="sounds">
           <thead>
             <tr>
