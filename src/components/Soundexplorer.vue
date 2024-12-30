@@ -19,6 +19,7 @@
     return index % 2 === 0 ? 'even' : 'odd'
   }
 
+  // !!! Will this still work if some rows are null?
   const sortData = (headerName: string, sortBy: string, dir: string) => {
     // Update current header to sortingHeader.
     sortingHeader.name = headerName
@@ -47,11 +48,13 @@
     { name: 'url',         sortKey: 'attribution.url',          dir: 'ASC' },
   ]
 
+  // !!! Should this be reactive? (currently works without)
   const sortingHeader = {
     name: 'group',
     dir: 'ASC',
   }
 
+  // !!! Will this still work if some rows are null?
   const filteredShallowRows = () => {
     const searchText = search.value.toLowerCase()
     return shallowRows.value.filter(row =>
