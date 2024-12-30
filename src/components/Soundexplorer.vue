@@ -4,7 +4,7 @@
   import { ref } from 'vue'
   import { getDeepValue } from '../helpers/objects.ts'
 
-  const shallowRows = ref([...sounds])
+  const shallowSounds = ref([...sounds])
   const search = ref('')
 
   const licenseCodeToIconClass = (code: string|null) => {
@@ -27,7 +27,7 @@
     // Update header's sorting direction.
     const header = headers.find(header => header.sortKey === sortBy)
     if (header) header.dir = dir
-    shallowRows.value = shallowRows.value.sort((a, b) => {
+    shallowSounds.value = shallowSounds.value.sort((a, b) => {
       const a1 = getDeepValue(a, sortBy) as string
       const b1 = getDeepValue(b, sortBy) as string
       return (dir === 'ASC')
@@ -55,9 +55,9 @@
   }
 
   // !!! Will this still work if some rows are null?
-  const filteredShallowRows = () => {
+  const filteredShallowSounds = () => {
     const searchText = search.value.toLowerCase()
-    return shallowRows.value.filter(row =>
+    return shallowSounds.value.filter(row =>
       row.group.name.toLowerCase().includes(searchText) ||
       row.label.toLowerCase().includes(searchText) ||
       row.name?.toLowerCase().includes(searchText) ||
@@ -76,9 +76,9 @@
     <div class="soundexplorer-wrapper">
       <div class="search">
         <input type="text" v-model="search" placeholder="search.." />
-        <span class="count"> {{ filteredShallowRows().length }} </span>
+        <span class="count"> {{ filteredShallowSounds().length }} </span>
       </div>
-      <div v-if="filteredShallowRows().length > 0">
+      <div v-if="filteredShallowSounds().length > 0">
         <table class="sounds">
           <thead>
             <tr>
@@ -125,7 +125,7 @@
           </thead>
           <tbody>
             <tr
-              v-for="(sound, index) in filteredShallowRows()"
+              v-for="(sound, index) in filteredShallowSounds()"
               :class="[sound.group.name, zebraClass(index)]"
             >
               <td class="number"> {{ sound.number     }} </td>
