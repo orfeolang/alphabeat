@@ -260,7 +260,10 @@
     td {
       border: none;
       color: #999;
+      overflow-x: hidden;
       padding: 8px;
+      text-overflow: ellipsis;
+      text-wrap: nowrap;
     }
 
     td.number {
