@@ -1,8 +1,11 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import Wavesurfer from './widgets/Wavesurfer.vue'
   import sounds from '../db/json/sounds.json'
+  import Wavesurfer from './widgets/Wavesurfer.vue'
+  import { ref } from 'vue'
   import { getDeepValue } from '../helpers/objects.ts'
+
+  const shallowRows = ref([...sounds])
+  const search = ref('')
 
   const licenseCodeToIconClass = (code: string|null) => {
     return code === 'CC0'
@@ -32,8 +35,6 @@
     })
   }
 
-  const shallowRows = ref([...sounds])
-
   const headers = [
     { name: null,          sortKey: null                                   },
     { name: 'group',       sortKey: 'group.name',               dir: 'ASC' },
@@ -50,8 +51,6 @@
     name: 'group',
     dir: 'ASC',
   }
-
-  const search = ref('')
 
   const filteredShallowRows = () => {
     const searchText = search.value.toLowerCase()

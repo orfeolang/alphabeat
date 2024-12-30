@@ -1,6 +1,7 @@
 <script setup lang="ts">
-  import { useTemplateRef, onMounted } from 'vue'
   import Wavesurfer from 'wavesurfer.js'
+  import { useTemplateRef, onMounted } from 'vue'
+
 
   const props = defineProps<{
     width:         number|"auto"
