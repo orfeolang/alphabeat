@@ -7,7 +7,7 @@
   const shallowSounds = ref([...sounds])
   const search = ref('')
 
-  const licenseCodeToIconClass = (code: string|null) => {
+  const licenseCodeToIconClass = (code: string|null):string => {
     return code === 'CC0'
       ? 'icon-creative-commons-zero'
       : code === 'A3' || code === 'A4'
@@ -16,12 +16,12 @@
   }
 
   // !!! Could be a general helper.
-  const zebraClass = (index: number) => {
+  const zebraClass = (index: number):string => {
     return index % 2 === 0 ? 'even' : 'odd'
   }
 
   // !!! Will this still work if some rows are null?
-  const sortData = (headerName: string, sortBy: string, dir: string) => {
+  const sortData = (headerName: string, sortBy: string, dir: string):void => {
     // Update current header to sortingHeader.
     sortingHeader.name = headerName
     sortingHeader.dir = dir
@@ -67,7 +67,7 @@
     )
   }
 
-  const headerNameToClassName = (headerName: string|null) =>
+  const headerNameToClassName = (headerName: string|null):string =>
     (headerName || 'number').replace(' ', '')
 </script>
 
