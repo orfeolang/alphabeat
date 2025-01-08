@@ -190,8 +190,9 @@
 
   .search {
     align-items: center;
+    background: #000000;
     display: flex;
-    margin-bottom: 10px;
+    padding: 20px 0 10px 20px;
 
     input {
       background: #111111;
