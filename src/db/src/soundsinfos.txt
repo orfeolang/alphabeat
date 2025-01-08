@@ -19,6 +19,9 @@ synth_moog1   C2_Minitaur_saw      CC0 modularsamples     Simple_Saw-36-127.aif 
 synth_moog2   A♯3_Moog_dopple      CC0 Pausenraum         Moog_dopple.aif                https://freesound.org/s/369152
 synth_moog3   D♯4_Minitaur_lead    CC0 menegass           MOOG_LEAD_D#.wav               https://freesound.org/s/324037
 synth_moog4   C5_Minitaur_square   CC0 modularsamples     Simple_Short_Square-81-127.aif https://freesound.org/s/299931
+synth_pssht   Daggorath_Scorpion   CC0 Douglas_J._Morgan  08_pssht.wav                   https://github.com/gondur/dungeons-of-daggorath/tree/master/sound
+synth_pssst   Daggorath_Snake      CC0 Douglas_J._Morgan  06_pssst.wav                   https://github.com/gondur/dungeons-of-daggorath/tree/master/sound
+synth_squeak  Daggorath_Spider     CC0 Douglas_J._Morgan  00_squeak.wav                  https://github.com/gondur/dungeons-of-daggorath/tree/master/sound
 synth_wee     Electronic_rain      CC0 soneproject        sfx3.flac                      https://freesound.org/s/252818
 voice_deux    Spoken:_"deux"       A3  sergeeo            Numbers_in_French              https://freesound.org/s/177269
 voice_four    Spoken:_"four"       CC0 EnjoyPA            Counting_from_1_to_20.WAV      https://freesound.org/s/203066
