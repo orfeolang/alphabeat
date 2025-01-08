@@ -2,7 +2,6 @@
   import Wavesurfer from 'wavesurfer.js'
   import { useTemplateRef, onMounted } from 'vue'
 
-
   const props = defineProps<{
     width:         number|"auto"
     height:        number|"auto"
