@@ -104,8 +104,7 @@
                     <span
                       class="icon-arrow-down"
                       :class="{
-                        active: header.dir === 'ASC',
-                       chosen: header.dir === 'ASC' && header.name === sortingHeader.name,
+                        active: header.dir === 'ASC' && header.name === sortingHeader.name,
                       }"
                     >
                     </span>
@@ -114,8 +113,7 @@
                     <span
                       class="icon-arrow-up"
                       :class="{
-                        active: header.dir === 'DESC',
-                        chosen: header.dir === 'DESC' && header.name === sortingHeader.name,
+                        active: header.dir === 'DESC' && header.name === sortingHeader.name,
                       }"
                     >
                     </span>
@@ -312,11 +310,6 @@
 
     .icon-arrow-down.active,
     .icon-arrow-up.active {
-      color: #666;
-    }
-
-    .icon-arrow-down.chosen,
-    .icon-arrow-up.chosen {
       color: #d55fde;
     }
 
