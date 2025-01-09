@@ -6,19 +6,23 @@ const path = {
     sounds:        './src/assets/sounds/',
   },
   build: {
+    soundpacks:    './src/db/json/soundpacks.json',
     sounds:        './src/db/json/sounds.json',
   },
   src: {
+    letters:       './src/db/src/letters.txt',
     licenses:      './src/db/src/licenses.txt',
     soundfiletype: './src/db/src/soundfiletype.txt',
     soundgroups:   './src/db/src/soundgroups.txt',
     soundsinfos:   './src/db/src/soundsinfos.txt',
+    soundpacks:    "./src/db/src/soundpacks/",
   },
 }
 
 // -------------------------------------------------------------------
 // Helpers.
 // -------------------------------------------------------------------
+const clone = obj => JSON.parse(JSON.stringify(obj))
 const extractValue = str => str.split(':')[1]
 const spacify_ = str => str.replaceAll('_', ' ')
 
@@ -155,7 +159,6 @@ soundsLoaded.forEach((soundLoaded, i) => {
       soundLoaded.lastIndexOf('_') + 1, soundLoaded.lastIndexOf('.')
     ),
   }
-
   const soundInfo = soundsInfos.find(
     soundInfo => soundInfo.filename === soundLoaded
   )
@@ -195,6 +198,70 @@ soundsLoaded.forEach((soundLoaded, i) => {
 })
 
 // -------------------------------------------------------------------
-// 5) Write JSON files
+// 5) Get letters.
+// -------------------------------------------------------------------
+const letters = await getFirstFileLine(path.src.letters)
+
+// -------------------------------------------------------------------
+// 6) Make raw soundpacks.
+// -------------------------------------------------------------------
+let soundpackfiles = fs.readdirSync(path.src.soundpacks)
+  .filter(file => file.endsWith('.txt'))
+
+async function makeRawSoundpacks() {
+  const soundpacks = []
+  async function makeSoundpack(soundpackfile) {
+    const dataStruct = parts => {
+       return parts[0]
+    }
+    return extractFileData(path.src.soundpacks + soundpackfile, dataStruct)
+  }
+  for (let i = 0, len = soundpackfiles.length; i < len; i++) {
+    const soundpack = {
+      name: soundpackfiles[i].split('.')[0],
+      soundlabels: await makeSoundpack(soundpackfiles[i]),
+    }
+    soundpacks.push(soundpack)
+  }
+  return soundpacks
+}
+
+const rawSoundpacks = await makeRawSoundpacks()
+
+console.log(rawSoundpacks)
+
+// -------------------------------------------------------------------
+// 7) Make soundpacks.
+// -------------------------------------------------------------------
+const soundpacks = []
+rawSoundpacks.forEach(rawSoundpack => {
+  const soundpack = {}
+  soundpack.name = rawSoundpack.name
+  soundpack.sounds = []
+  rawSoundpack.soundlabels.forEach((soundlabel, i) => {
+    const sound = clone(sounds.find(sound => sound.label === soundlabel))
+    sound.letter = letters.at(i)
+    soundpack.sounds.push(sound)
+  })
+  soundpacks.push(soundpack)
+})
+
+console.log(soundpacks)
+
+// -------------------------------------------------------------------
+// 8) Add soundspacks to sounds.
+// -------------------------------------------------------------------
+sounds.forEach(sound => {
+  sound.packs = []
+  rawSoundpacks.forEach(rawSoundpack => {
+    if (rawSoundpack.soundlabels.includes(sound.label)) {
+      sound.packs.push(rawSoundpack.name)
+    }
+  })
+})
+
+// -------------------------------------------------------------------
+// 9) Write JSON files.
 // -------------------------------------------------------------------
 writeFile(path.build.sounds, sounds)
+writeFile(path.build.soundpacks, soundpacks)

@@ -1,14 +1,14 @@
 <script setup lang="ts">
   import Footer from './components/Footer.vue'
   import Header from './components/Header.vue'
-  import SelectExample from './components/SelectExample.vue'
   import Soundexplorer from './components/Soundexplorer.vue'
+  import Soundlibrary from './components/Soundlibrary.vue'
 </script>
 
 <template>
   <Header />
   <main>
-    <SelectExample />
+    <Soundlibrary />
     <Soundexplorer />
   </main>
   <Footer />
