@@ -43,6 +43,7 @@
     { name: 'sound',       sortKey: null,                                  },
     { name: 'label',       sortKey: 'label',                    dir: 'ASC' },
     { name: 'name',        sortKey: 'name',                     dir: 'ASC' },
+    { name: 'soundpacks',  sortKey: null,                                  },
     { name: 'license',     sortKey: 'attribution.license.code', dir: 'ASC' },
     { name: 'author',      sortKey: 'attribution.author',       dir: 'ASC' },
     { name: 'source name', sortKey: 'attribution.sourcename',   dir: 'ASC' },
@@ -69,6 +70,15 @@
 
   const headerNameToClassName = (headerName: string|null):string =>
     (headerName || 'number').replace(' ', '')
+
+  const extractSoundpacks = (soundpacks: Array<string>) => {
+    let html:string = ''
+    soundpacks.sort()
+    soundpacks.forEach(soundpack => {
+      html += soundpack + '\n'
+    })
+    return html
+  }
 </script>
 
 <template>
@@ -88,10 +98,7 @@
                 :class="headerNameToClassName(header.name)"
               >
                 {{ header.name }}
-                <span
-                  v-if="header.name === 'url'"
-                  class="icon-external-link"
-                ></span>
+                <span v-if="header.name === 'url'" class="icon-external-link"></span>
               </th>
             </tr>
             <tr>
@@ -140,8 +147,9 @@
                   :key=sound.filepath
                 />
               </td>
-              <td class="label"> {{ sound.label }} </td>
-              <td class="name">  {{ sound.name  }} </td>
+              <td class="label">      {{ sound.label }} </td>
+              <td class="name">       {{ sound.name  }} </td>
+              <td class="soundpacks"> {{ extractSoundpacks(sound.soundpacks) }} </td>
               <td class="license">
                 <span
                   :class="licenseCodeToIconClass(sound.attribution.license.code)"
@@ -183,7 +191,7 @@
   }
 
   .soundexplorer-wrapper {
-    width: 1198px;
+    width: 1298px;
   }
 
   .search {
@@ -232,10 +240,15 @@
     th.sound,      td.sound      { width: 98px;  }
     th.label,      td.label      { width: 65px;  }
     th.name,       td.name       { width: 179px; }
+    th.soundpacks, td.soundpacks { width: 100px; }
     th.license,    td.license    { width: 80px;  }
     th.author,     td.author     { width: 160px; }
     th.sourcename, td.sourcename { width: 263px; }
     th.url,        td.url        { width: 249px; }
+
+    td.soundpacks {
+      white-space: pre;
+    }
 
     th {
       background: #000000;

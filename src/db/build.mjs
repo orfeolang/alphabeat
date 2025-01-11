@@ -252,10 +252,10 @@ console.log(soundpacks)
 // 8) Add soundspacks to sounds.
 // -------------------------------------------------------------------
 sounds.forEach(sound => {
-  sound.packs = []
+  sound.soundpacks = []
   rawSoundpacks.forEach(rawSoundpack => {
     if (rawSoundpack.soundlabels.includes(sound.label)) {
-      sound.packs.push(rawSoundpack.name)
+      sound.soundpacks.push(rawSoundpack.name)
     }
   })
 })
