@@ -228,8 +228,6 @@ async function makeRawSoundpacks() {
 
 const rawSoundpacks = await makeRawSoundpacks()
 
-console.log(rawSoundpacks)
-
 // -------------------------------------------------------------------
 // 7) Make soundpacks.
 // -------------------------------------------------------------------
@@ -245,8 +243,6 @@ rawSoundpacks.forEach(rawSoundpack => {
   })
   soundpacks.push(soundpack)
 })
-
-console.log(soundpacks)
 
 // -------------------------------------------------------------------
 // 8) Add soundspacks to sounds.
