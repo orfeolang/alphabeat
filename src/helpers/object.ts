@@ -9,8 +9,8 @@
 // const value = getDeepValue(obj, path)
 // console.log(value) // 2
 // *******************************************************************
-const getDeepValue = (obj: object, keysPath: string):string|undefined => {
-  function runner(obj: object, keysArr: Array<string>, keysArrIndex = 0) {
+const getDeepValue = (obj:object, keysPath:string):string|undefined => {
+  function runner(obj:object, keysArr:Array<string>, keysArrIndex:number = 0) {
     const key = keysArr[keysArrIndex]
     const value = obj[key as keyof typeof obj]
     if (
@@ -27,4 +27,6 @@ const getDeepValue = (obj: object, keysPath: string):string|undefined => {
   return runner(obj, keysArr)
 }
 
-export { getDeepValue }
+export {
+  getDeepValue,
+}

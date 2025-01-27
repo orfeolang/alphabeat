@@ -2,11 +2,6 @@
 /* Additions (Not in Best CSS Reset 2024)
 /********************************************************************/
 
-button {
-  all: unset;
-  cursor: pointer;
-}
-
 table {
   border-collapse: collapse;
 }

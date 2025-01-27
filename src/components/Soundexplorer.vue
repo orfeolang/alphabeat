@@ -2,7 +2,7 @@
   import sounds from '../db/json/sounds.json'
   import Wavesurfer from './widgets/Wavesurfer.vue'
   import { ref } from 'vue'
-  import { getDeepValue } from '../helpers/objects.ts'
+  import { getDeepValue } from '../helpers/object.ts'
 
   const shallowSounds = ref([...sounds])
   const search = ref('')
