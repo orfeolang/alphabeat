@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import Select from './widgets/Select.vue'
+  import Select from './widgets/form/Select.vue'
   import Soundpanel from './Soundpanel.vue'
   import soundpacks from '../db/json/soundpacks.json'
   import { ref, computed } from 'vue'

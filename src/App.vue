@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import Footer from './components/Footer.vue'
   import Header from './components/Header.vue'
-  import Signin from './components/auth/Signin.vue'
-  import Register from './components/auth/Register.vue'
+  //import Signin from './components/auth/Signin.vue'
+  //import Register from './components/auth/Register.vue'
   // import Soundexplorer from './components/Soundexplorer.vue'
   // import Soundlibrary from './components/Soundlibrary.vue'
 </script>
@@ -10,8 +10,9 @@
 <template>
   <Header />
   <main>
-    <Register />
-    <Signin />
+    <RouterView />
+    <!-- <Register /> -->
+    <!-- <Signin /> -->
     <!-- <Soundlibrary /> -->
     <!-- <Soundexplorer /> -->
   </main>
@@ -20,9 +21,8 @@
 
 <style scoped>
   main {
+    display: flex;
     margin: 20px auto;
     padding: 20px;
-
-    display: flex;
   }
 </style>
