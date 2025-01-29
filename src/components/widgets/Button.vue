@@ -1,31 +1,47 @@
 <script setup lang="ts">
-  const props = defineProps({
-    text:  { type: String, required: true },
-    class: { type: String, required: false, default: 'primary' },
-  })
+  interface Props {
+    label: string
+    theme?: string
+  }
+
+  const {
+    label,
+    theme = 'dark',
+  } = defineProps<Props>()
 </script>
 
 <template>
-  <button :class=props.class>{{ props.text }}</button>
+  <div :class=theme>{{ label }}</div>
 </template>
 
 <style scoped>
-  button {
-    all: unset;
-    box-sizing: border-box;
+  div {
     cursor: pointer;
+    font-size: 20px;
+    letter-spacing: 1px;
     opacity: 0.85;
     padding: 15px;
-    transition: 0.50s;
-    width: 100%;
+    text-align: center;
+    transition: 0.4s;
   }
 
-  button:hover {
-    opacity:1;
+  div:hover {
+    opacity: 1;
   }
 
-  button.primary {
-    background: #04AA6D;
+  div.dark {
+    background-image: linear-gradient(
+      to right, #04AA6D, #222244
+    );
     color: #ffffff;
+  }
+
+  div.monochrome {
+    background: #000000;
+    color: #fff;
+
+    &:hover {
+      color: crimson;
+    }
   }
 </style>
