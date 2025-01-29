@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import readline from 'node:readline'
+import { mkdirp } from 'mkdirp'
 
 const path = {
   assets: {
@@ -24,6 +25,7 @@ const path = {
 // -------------------------------------------------------------------
 const clone = obj => JSON.parse(JSON.stringify(obj))
 const extractValue = str => str.split(':')[1]
+const getDirFromFilePath = str => str.substring(0, str.lastIndexOf('/'))
 const spacify_ = str => str.replaceAll('_', ' ')
 
 const getFileNamesOfType = (dir, fileType) => {
@@ -62,6 +64,8 @@ async function getFirstFileLine(filePath) {
 }
 
 async function writeFile(filePath, data) {
+  const dir = getDirFromFilePath(filePath)
+  await mkdirp(dir)
   const jsonify = payload => JSON.stringify(payload, null, 4) + '\n'
   fs.writeFile(filePath, jsonify(data), err => {
     if (err) {
