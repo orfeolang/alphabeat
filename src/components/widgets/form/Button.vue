@@ -37,4 +37,14 @@
     );
     color: #ffffff;
   }
+
+  div.monochrome {
+    background: #000000;
+    color: #fff;
+
+    &:hover {
+      color: crimson;
+      border: 5px solid crimson;
+    }
+  }
 </style>

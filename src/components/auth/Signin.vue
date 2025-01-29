@@ -79,10 +79,7 @@
     width: 600px;
     border-radius: 4px;
     /* Why does height go all the way down */
-    margin-left: 30px; /* This is temporary */
   }
-
-
 
   h3 {
     text-align: center;

@@ -2,6 +2,11 @@
   <footer>
     <p>AlphaBeat Powered by <a href="http://orfeolang.com">Orfeo</a></p>
     <p>Copyright 2024 <a href="https://github.com/pelevesque">Pierre-Emmanuel Lévesque</a></p>
+    <p>
+      <RouterLink to="/terms-of-use">Terms of Use</RouterLink>
+      |
+      <RouterLink to="/privacy-policy">Privacy Policy</RouterLink>
+    </p>
   </footer>
 </template>
 

@@ -38,20 +38,6 @@ const validatePassword = (
   return errors
 }
 
-const validatePasswordRepeat = (
-  passwordRepeat:string, password:string, options?:Options
-):Array<string> => {
-  let o = {...defaultOptions, ...options}
-  const errors = []
-  if (o.required && isEmpty(passwordRepeat)) {
-    errors.push('Your repeated password is required.')
-  }
-  else if (passwordRepeat !== password) {
-    errors.push('Your passwords do not match.')
-  }
-  return errors
-}
-
 const validateUsername = (
   username:string, options?:Options
 ):Array<string> => {
@@ -74,6 +60,5 @@ const validateUsername = (
 export {
   validateEmail,
   validatePassword,
-  validatePasswordRepeat,
   validateUsername,
 }

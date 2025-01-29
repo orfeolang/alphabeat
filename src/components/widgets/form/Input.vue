@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import ToggleIcon from './toggleIcon.vue'
+
   const emit = defineEmits(['update:modelValue'])
 
   interface Props {
@@ -26,6 +28,20 @@
     theme = 'dark',
     type = 'text',
   } = defineProps<Props>()
+
+
+
+
+
+  import { ref } from 'vue'
+  const visibleInput = ref(true)
+
+  const onSeeToggle = () => {
+    visibleInput.value = ! visibleInput.value
+  }
+
+
+
 </script>
 
 <template>
@@ -42,17 +58,26 @@
         </template>
       </span>
     </label>
-    <input
-      :id=id
-      :maxlength=maxlength
-      :placeholder=placeholder
-      :type=type
-      :value=modelValue
-      @input="$emit(
-        'update:modelValue',
-        ($event.target as HTMLInputElement).value
-      )"
-    />
+    <div class="input-wrapper">
+      <input
+       :id=id
+        :maxlength=maxlength
+        :placeholder=placeholder
+        :type=type
+        :value=modelValue
+        @input="$emit(
+          'update:modelValue',
+          ($event.target as HTMLInputElement).value
+        )"
+      />
+      <ToggleIcon
+        class="eye-toggle"
+        iconToggled="icon-eye-off"
+        iconUntoggled="icon-eye"
+        :isToggled=visibleInput
+        @click="onSeeToggle"
+      />
+    </div>
     <div class="errors" v-for="(error, i) in errors" :key=i>
       <div>{{ error }}</div>
     </div>
@@ -60,6 +85,19 @@
 </template>
 
 <style scoped>
+
+  .input-wrapper {
+    position: relative;
+    display: flex;
+
+    .eye-toggle {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      font-size: 24px;
+    }
+  }
+
   label {
     align-items: baseline;
     display: flex;
