@@ -16,7 +16,7 @@
       <transition name="modal-animation-inner">
         <div v-show=isOpen class="modal-inner">
           <span
-            class="icon-cancel-circle"
+            class="icon-x-circle"
             @click=close
           ></span>
           <slot />
@@ -83,10 +83,10 @@
       scrollbar-width: thin;
       width: 80%;
 
-      .icon-cancel-circle {
+      .icon-x-circle {
         cursor: pointer;
         float: right;
-        font-size: 24px;
+        font-size: 28px;
         position: sticky;
         top: 0;
 
