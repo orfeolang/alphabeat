@@ -5,17 +5,17 @@
 
 @font-face {
   font-family: 'icomoon';
-  src: url('src/assets/fonts/icomoon/icomoon.eot?8fh7gn');
-  src: url('src/assets/fonts/icomoon/icomoon.eot?8fh7gn#iefix') format('embedded-opentype'),
-   url('src/assets/fonts/icomoon/icomoon.ttf?8fh7gn') format('truetype'),
-   url('src/assets/fonts/icomoon/icomoon.woff?8fh7gn') format('woff'),
-   url('src/assets/fonts/icomoon/icomoon.svg?8fh7gn#icomoon') format('svg');
+  src: url('src/assets/fonts/icomoon/icomoon.eot?b73b3c');
+  src: url('src/assets/fonts/icomoon/icomoon.eot?b73b3c#iefix') format('embedded-opentype'),
+   url('src/assets/fonts/icomoon/icomoon.ttf?b73b3c') format('truetype'),
+   url('src/assets/fonts/icomoon/icomoon.woff?b73b3c') format('woff'),
+   url('src/assets/fonts/icomoon/icomoon.svg?b73b3c#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^='icon-'], [class*='icon-'] {
+[class^='icon-'], [class*=' icon-'] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: never;
@@ -32,7 +32,8 @@
 
 .icon-arrow-down:before            { content: '\e900'; }
 .icon-arrow-up:before              { content: '\e901'; }
-.icon-cancel-circle:before         { content: '\ea0d'; }
+.icon-check-square:before          { content: '\e909'; }
+.icon-cpu:before                   { content: '\e90c'; }
 .icon-creative-commons-by:before   { content: '\e905'; }
 .icon-creative-commons-zero:before { content: '\e906'; }
 .icon-discord:before               { content: '\e904'; }
@@ -40,6 +41,13 @@
 .icon-eye:before                   { content: '\e907'; }
 .icon-eye-off:before               { content: '\e908'; }
 .icon-github:before                { content: '\e903'; }
+.icon-pause:before                 { content: '\e90b'; }
+.icon-play:before                  { content: '\e90d'; }
+.icon-rotate-cw:before             { content: '\e90e'; }
+.icon-save:before                  { content: '\e90f'; }
+.icon-square:before                { content: '\e90a'; }
+.icon-trash-2:before               { content: '\e910'; }
+.icon-x-circle:before              { content: '\e911'; }
 
 /*********************************************************************
 /* IBM Plex fonts
