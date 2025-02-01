@@ -3,33 +3,31 @@
   import { useTemplateRef, onMounted } from 'vue'
 
   const props = defineProps<{
-    width:         number|"auto"
-    height:        number|"auto"
-    colorCursor:   string
-    colorProgress: string
-    colorWave:     string
-    url:           string
+    cursorColor: string
+    height: number|"auto"
+    progressColor: string
+    url: string
+    waveColor: string
+    width: number|"auto"
   }>()
 
-  const container = useTemplateRef('container')
+  const containerRef = useTemplateRef('container')
 
   onMounted(() => {
-    const el = container.value as HTMLElement
+    const el = containerRef.value as HTMLElement
     const wavesurfer = Wavesurfer.create({
+      // Due to a Safari bug, the backend must be 'WebAudio'.
+      // We could use 'MediaElement' for other browsers.
+      backend:      'WebAudio',
       container:     el,
+      cursorColor:   props.cursorColor,
+      height:        props.height,
       hideScrollbar: true,
       interact:      false,
-      width:         props.width,
-      height:        props.height,
-      cursorColor:   props.colorCursor,
-      progressColor: props.colorProgress,
-      waveColor:     props.colorWave,
+      progressColor: props.progressColor,
       url:           props.url,
-      // Due to a Safari bug, backend must be
-      // 'WebAudio' for Safari.
-      // We could use 'MediaElement' for other
-      // browsers by doing browser detection.
-      backend:      'WebAudio',
+      waveColor:     props.waveColor,
+      width:         props.width,
     })
 
      wavesurfer.on('ready', () => {
@@ -44,11 +42,11 @@
 </script>
 
 <template>
-  <div ref="container"></div>
+  <div class="wavesurfer" ref="container"></div>
 </template>
 
 <style scoped>
-  div {
+  .wavesurfer {
     cursor: pointer;
   }
 </style>

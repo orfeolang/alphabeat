@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import Button from '../widgets/Button.vue'
+  import Button from './Button.vue'
 
   const emit = defineEmits(['close'])
 
@@ -83,7 +83,7 @@
       scrollbar-width: thin;
       width: 80%;
 
-      .icon-x-circle {
+      [class^='icon-'], [class*=' icon-'] {
         cursor: pointer;
         float: right;
         font-size: 28px;

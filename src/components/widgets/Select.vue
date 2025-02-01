@@ -36,8 +36,8 @@
         v-for="(option, i) of options"
         :key="i"
         @click="
-          selected = option;
           open = false;
+          selected = option;
           $emit('input', option);
         "
       >

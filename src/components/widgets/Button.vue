@@ -11,11 +11,11 @@
 </script>
 
 <template>
-  <div :class=theme>{{ label }}</div>
+  <div class="button" :class=theme>{{ label }}</div>
 </template>
 
 <style scoped>
-  div {
+  .button {
     cursor: pointer;
     font-size: 20px;
     letter-spacing: 1px;
@@ -23,25 +23,25 @@
     padding: 15px;
     text-align: center;
     transition: 0.4s;
-  }
 
-  div:hover {
-    opacity: 1;
-  }
-
-  div.dark {
-    background-image: linear-gradient(
-      to right, #04AA6D, #222244
-    );
-    color: #ffffff;
-  }
-
-  div.monochrome {
-    background: #000000;
-    color: #fff;
-
-    &:hover {
-      color: crimson;
+    &.dark {
+      background-image: linear-gradient(
+        to right, #04AA6D, #222244
+      );
+      color: #ffffff;
     }
+
+    &.monochrome {
+      background: #000000;
+      color: #fff;
+
+      &:hover {
+        color: crimson;
+      }
+    }
+  }
+
+  .button:hover {
+    opacity: 1;
   }
 </style>

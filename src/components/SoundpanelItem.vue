@@ -19,9 +19,9 @@
       <Wavesurfer
         :height=30
         :width=80
-        :colorCursor=props.colorCursor
-        :colorProgress=props.colorProgress
-        :colorWave=props.colorWave
+        :cursorColor=props.colorCursor
+        :progressColor=props.colorProgress
+        :waveColor=props.colorWave
         :url=props.filepath
       />
     </div>

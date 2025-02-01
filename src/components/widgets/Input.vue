@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import Toggle from './Toggle.vue'
+  import Icon from './Icon.vue'
+  import { ref, watch } from 'vue'
 
   const emit = defineEmits(['update:modelValue'])
 
@@ -15,7 +15,7 @@
     optional?: boolean
     placeholder?: string
     theme?: string
-    type?: 'password'|'text'
+    type?: 'password' | 'text'
   }
 
   const {
@@ -34,14 +34,13 @@
 
   const inputType = ref(type)
 
-  let isInputVisibilityToggled = inputType.value === 'text'
+  const toggleInputVisibilityStateRef = ref(false)
 
-  const toggleInputVisibility = () => {
-    isInputVisibilityToggled = ! isInputVisibilityToggled
-    inputType.value = inputType.value === 'text'
-      ? 'password'
-      : 'text'
-  }
+  watch(toggleInputVisibilityStateRef, () => {
+    inputType.value = toggleInputVisibilityStateRef.value
+      ? type === 'password' ? 'text' : type
+      : 'password'
+  })
 </script>
 
 <template>
@@ -70,13 +69,13 @@
           ($event.target as HTMLInputElement).value
         )"
       />
-      <Toggle
+      <Icon
         v-if=hasInputVisibilityToggle
         class="input-visibility-toggle"
-        iconToggled="icon-eye"
-        iconUntoggled="icon-eye-off"
-        :isToggled=isInputVisibilityToggled
-        @click=toggleInputVisibility
+        nameWhenToggled="eye"
+        name="eye-off"
+        type="toggle"
+        v-model=toggleInputVisibilityStateRef
       />
     </div>
     <div class="errors" v-for="(error, i) in errors" :key=i>
@@ -128,20 +127,19 @@
     }
 
     .input-visibility-toggle {
-      font-size: 24px;
       position: absolute;
       right: 20px;
-      top: 18px;
+      top: 13px;
     }
   }
 
-  div.errors div {
+  .errors div {
     color: #ff0000;
     font-size: 14px;
     margin-left: 10px;
   }
 
-  div.dark {
+  .dark {
     input {
       background: #101010;
       color: #ffffff;

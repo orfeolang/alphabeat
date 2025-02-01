@@ -140,9 +140,9 @@
                 <Wavesurfer
                   :height=40
                   :width=80
-                  :colorCursor=sound.group.color.cursor
-                  :colorProgress=sound.group.color.progress
-                  :colorWave=sound.group.color.wave
+                  :cursorColor=sound.group.color.cursor
+                  :progressColor=sound.group.color.progress
+                  :waveColor=sound.group.color.wave
                   :url=sound.filepath
                   :key=sound.filepath
                 />
