@@ -5,7 +5,6 @@ import {
   isWordWithHyphens,
 } from './string'
 
-
 const validateEmail = (email:string):Array<string> => {
   const errors = []
   if (isEmpty(email)) {
