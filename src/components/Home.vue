@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import Icon from './widgets/Icon.vue'
+  import ProgressBar from './widgets/ProgressBar.vue'
   import Select from './widgets/Select.vue'
   import Soundlibrary from './Soundlibrary.vue'
   import { ref } from 'vue'
@@ -115,6 +116,9 @@
             v-model=isLoopingRef
           />
         </div>
+        <div class="progress-bar-container">
+          <ProgressBar :progress="88"/>
+        </div>
       </div>
       <div class="textarea monitor" contenteditable="true">monitor</div>
     </div>
@@ -123,28 +127,12 @@
 </template>
 
 <style scoped>
-  .editor-container .controls {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-
-    .select {
-      margin-bottom: 3px;
-      width: 200px;
-    }
-  }
-
   .container {
     display: flex;
   }
 
-  .textarea {
-    background: #000;
-    border: 1px solid #000;
-    color: #ccc;
-    height: auto;
-    margin-right: 10px;
-    padding: 20px;
+  .editor-container, .monitor-container {
+    margin-right: 20px;
   }
 
   .editor {
@@ -155,8 +143,32 @@
     width: 600px;
   }
 
+  .controls {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    .select {
+      margin-bottom: 3px;
+      width: 200px;
+    }
+  }
+
+  .textarea {
+    background: #000;
+    border: 1px solid #000;
+    color: #ccc;
+    height: auto;
+    padding: 20px;
+  }
+
   [class^='icon-'], [class*=' icon-'] {
     font-size: 24px;
     padding: 8px;
+  }
+
+  .progress-bar-container {
+    width: 400px;
+    padding: 10px 0;
   }
 </style>
