@@ -3,7 +3,7 @@
   import { iconNameType } from '../../helpers/type'
   import { computed } from 'vue'
 
-  const emit = defineEmits(['click', 'update:modelValue'])
+  const emit = defineEmits(['update:modelValue'])
 
   interface Props {
     colorActive?: boolean
@@ -51,13 +51,8 @@
   }))
 
   const click = () => {
-    if ( ! disabled) {
-      if (type === 'button') {
-        emit('click')
-      }
-      else if (type === 'toggle') {
-        emit('update:modelValue', ! modelValue)
-      }
+    if (type === 'toggle' && ! disabled) {
+      emit('update:modelValue', ! modelValue)
     }
   }
 </script>
