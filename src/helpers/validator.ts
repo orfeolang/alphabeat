@@ -1,13 +1,13 @@
 import {
-  isEmpty,
-  isOverLength,
+  isEmptyString,
+  isOverLengthString,
   isPossiblyEmail,
   isWordWithHyphens,
 } from './string'
 
 const validateEmail = (email:string):Array<string> => {
   const errors = []
-  if (isEmpty(email)) {
+  if (isEmptyString(email)) {
     errors.push('Your email is required.')
   }
   else if (email.length > 0 && !isPossiblyEmail(email)) {
@@ -18,7 +18,7 @@ const validateEmail = (email:string):Array<string> => {
 
 const validatePassword = (password:string):Array<string> => {
   const errors = []
-  if (isEmpty(password)) {
+  if (isEmptyString(password)) {
     errors.push('Your password is required.')
   }
   return errors
@@ -26,11 +26,11 @@ const validatePassword = (password:string):Array<string> => {
 
 const validateUsername = (username:string, maxLength: number):Array<string> => {
   const errors = []
-  if (isEmpty(username)) {
+  if (isEmptyString(username)) {
     errors.push('Your username is required.')
   }
   else {
-    if (isOverLength(username, maxLength)) {
+    if (isOverLengthString(username, maxLength)) {
       errors.push(`Your username cannot be more than ${maxLength} characters long.`)
     }
     if ( ! isWordWithHyphens(username)) {
