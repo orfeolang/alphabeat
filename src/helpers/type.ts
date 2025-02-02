@@ -7,15 +7,21 @@ type iconNameType =
   'creative-commons-zero' |
   'discord' |
   'external-link' |
-  'eye-off' |
   'eye' |
+  'eye-off' |
   'github' |
+  'keyboard' |
+  'minus' |
   'pause' |
   'play' |
-  'rotate-cw' |
+  'plus' |
+  'redo' |
+  'repeat' |
   'save' |
+  'settings' |
   'square' |
-  'trash-2' |
+  'trash' |
+  'undo' |
   'x-circle'
 
 export {

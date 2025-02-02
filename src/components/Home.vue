@@ -109,7 +109,7 @@
             @click=handlePause
           />
           <Icon
-            name="rotate-cw"
+            name="repeat"
             :showTooltip=true
             tooltip="loop"
             type="toggle"
