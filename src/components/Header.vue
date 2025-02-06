@@ -11,6 +11,7 @@
       <RouterLink to="/register">Register</RouterLink>
       <RouterLink to="/sign-in">Sign-in</RouterLink>
       <RouterLink to="/sound-explorer">Sound-Explorer</RouterLink>
+      <RouterLink to="/library">Library</RouterLink>
     <!--
       <a href="#">Sound-Explorer</a>
       <a href="#">Sound-Panel</a>
