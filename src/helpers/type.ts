@@ -1,28 +1,31 @@
 type iconNameType =
-  'arrow-down' |
-  'arrow-up' |
-  'check-square' |
-  'cpu' |
-  'creative-commons-by' |
-  'creative-commons-zero' |
-  'discord' |
-  'external-link' |
-  'eye' |
-  'eye-off' |
-  'github' |
-  'keyboard' |
-  'minus' |
-  'pause' |
-  'play' |
-  'plus' |
-  'redo' |
-  'repeat' |
-  'save' |
-  'settings' |
-  'square' |
-  'trash' |
-  'undo' |
-  'x-circle'
+    'caret--down'
+  | 'caret--up'
+  | 'checkbox'
+  | 'checkbox--checked'
+  | 'cloud--upload'
+  | 'continue'
+  | 'continue--filled'
+  | 'creative--commons-by'
+  | 'creative--commons-from'
+  | 'debug'
+  | 'erase'
+  | 'keyboard'
+  | 'launch'
+  | 'logo--discord'
+  | 'logo--github'
+  | 'pause'
+  | 'pause--filled'
+  | 'play'
+  | 'play--filled'
+  | 'redo'
+  | 'repeat'
+  | 'stop'
+  | 'stop--filled'
+  | 'transform--code'
+  | 'undo'
+  | 'view'
+  | 'view--off'
 
 export {
   type iconNameType
