@@ -1,43 +1,54 @@
-<!--
-  Taken from:
-  https://codesandbox.io/p/sandbox/custom-vuejs-select-component-8nqgd
--->
-
 <script setup lang="ts">
+  import Icon from './Icon.vue'
   import { ref, onMounted } from 'vue'
   const emit = defineEmits(['input'])
 
-  const props = defineProps({
-    options:  { type: Array,  required: true },
-    default:  { type: String, required: false, default: null },
-    tabindex: { type: Number, required: false, default: 0 },
-  })
+  interface Props {
+    defaultOption?: string
+    options: Array<String>
+    tabindex?: number
+  }
 
-  let selected = props.default
-    ? props.default
-    : props.options.length > 0
-      ? props.options[0]
-      : null
+  const {
+    defaultOption,
+    options,
+    tabindex = 0,
+  } = defineProps<Props>()
 
-  const open = ref(false)
+  const selectedRef = ref(
+    defaultOption
+      ? defaultOption
+      : options.length > 0
+        ? options[0]
+        : null
+  )
+
+  const isOpenRef = ref(false)
 
   onMounted(() => {
-    emit('input', selected)
+    emit('input', selectedRef.value)
   })
 </script>
 
 <template>
-  <div class="custom-select" :tabindex="tabindex" @blur="open = false">
-    <div class="selected" :class="{ open: open }" @click="open = !open">
-      {{ selected }}
+  <div class="select" :tabindex="tabindex" @blur="isOpenRef = false">
+    <div
+      class="selection"
+      :class="{ open: isOpenRef }"
+      @click="isOpenRef = ! isOpenRef"
+    >
+      {{ selectedRef }}
+      <Icon name="caret--down" />
     </div>
-    <div class="items" :class="{ selectHide: !open }">
+
+    <div class="items" :class="{ 'hide': ! isOpenRef }">
       <div
+        class="item"
         v-for="(option, i) of options"
         :key="i"
         @click="
-          open = false;
-          selected = option;
+          isOpenRef = false;
+          selectedRef = option;
           $emit('input', option);
         "
       >
@@ -48,67 +59,58 @@
 </template>
 
 <style scoped>
-  .custom-select {
+  .select {
+    font-size: 16px;
     height: 47px;
     line-height: 47px;
     outline: none;
     position: relative;
     text-align: left;
-    width: 100%;
-  }
+    width: 100px;
 
-  .custom-select .selected {
-    background-color: #0a0a0a;
-    border: 1px solid #666666;
-    border-radius: 6px;
-    color: #fff;
-    cursor: pointer;
-    padding-left: 1em;
-    user-select: none;
-  }
+    .selection {
+      align-items: center;
+      background-color: #0a0a0a;
+      border: 1px solid #666666;
+      border-radius: 6px; border-radius: 0;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 5px 0 16px;
+      user-select: none;
 
-  .custom-select .selected.open {
-    border: 1px solid #ad8225;
-    border-radius: 6px 6px 0px 0px;
-  }
+      &.open {
+        border: 1px solid #ad8225;
+      }
+    }
 
-  .custom-select .selected:after {
-    border: 5px solid transparent;
-    border-color: #fff transparent transparent transparent;
-    content: "";
-    height: 0;
-    position: absolute;
-    right: 1em;
-    top: 22px;
-    width: 0;
-  }
+    .items {
+      background-color: #0a0a0a;
+      border-bottom: 1px solid #ad8225;
+      border-left: 1px solid #ad8225;
+      border-right: 1px solid #ad8225;
+      color: #fff;
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      right: 0;
+      z-index: 1;
 
-  .custom-select .items {
-    background-color: #0a0a0a;
-    border-bottom: 1px solid #ad8225;
-    border-left: 1px solid #ad8225;
-    border-radius: 0px 0px 6px 6px;
-    border-right: 1px solid #ad8225;
-    color: #fff;
-    left: 0;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    z-index: 777;
-  }
+      &.hide {
+        display: none;
+      }
 
-  .custom-select .items div {
-    color: #fff;
-    cursor: pointer;
-    padding-left: 1em;
-    user-select: none;
-  }
+      .item {
+        color: #fff;
+        cursor: pointer;
+        padding-left: 1em;
+        user-select: none;
 
-  .custom-select .items div:hover {
-    background-color: #ad8225;
-  }
-
-  .selectHide {
-    display: none;
+        &:hover {
+          background-color: #333;
+        }
+      }
+    }
   }
 </style>
