@@ -13,7 +13,7 @@
 <template>
   <div class="progress-bar">
     <div
-      class="progress-bar__bar"
+      class="bar"
       :style="{ width: constrainNumber(progress, 0, 100) + '%' }"
     ></div>
   </div>
@@ -23,11 +23,11 @@
   .progress-bar {
     background-color: grey;
     width: 100%;
-  }
 
-  .progress-bar__bar {
-    background-color: green;
-    height: 30px;
-    width: 0%;
+    .bar {
+      background-color: green;
+      height: 30px;
+      width: 0%;
+    }
   }
 </style>
