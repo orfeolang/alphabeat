@@ -5,6 +5,7 @@ type iconNameType =
   | 'chat'
   | 'checkbox'
   | 'checkbox--checked'
+  | 'close--outline'
   | 'cloud--upload'
   | 'continue'
   | 'continue--filled'

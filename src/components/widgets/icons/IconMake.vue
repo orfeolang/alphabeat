@@ -7,6 +7,7 @@
   import ChatPath                from './paths/Chat.vue'
   import CheckboxPath            from './paths/Checkbox.vue'
   import CheckboxCheckedPath     from './paths/CheckboxChecked.vue'
+  import CloseOutlinePath        from './paths/CloseOutline.vue'
   import CloudUploadPath         from './paths/CloudUpload.vue'
   import ContinuePath            from './paths/Continue.vue'
   import ContinueFilledPath      from './paths/ContinueFilled.vue'
@@ -66,6 +67,7 @@
     <template v-else-if="name === 'chat'"><ChatPath /></template>
     <template v-else-if="name === 'checkbox'"><CheckboxPath /></template>
     <template v-else-if="name === 'checkbox--checked'"><CheckboxCheckedPath /></template>
+    <template v-else-if="name === 'close--outline'"><CloseOutlinePath /></template>
     <template v-else-if="name === 'cloud--upload'"><CloudUploadPath /></template>
     <template v-else-if="name === 'continue'"><ContinuePath /></template>
     <template v-else-if="name === 'continue--filled'"><ContinueFilledPath /></template>
