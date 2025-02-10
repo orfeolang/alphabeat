@@ -1,3 +1,4 @@
+<!-- Have inner model value -->
 <script setup lang="ts">
   import Icon from './Icon.vue'
   import { ref, watch } from 'vue'
@@ -30,8 +31,8 @@
     <label :for=id>
       <Icon
         :id=id
-        nameWhenToggled="check-square"
-        name="square"
+        name="checkbox"
+        nameWhenToggled="checkbox--checked"
         type="toggle"
         v-model=isToggledRef
       />
