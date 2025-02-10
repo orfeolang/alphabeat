@@ -44,7 +44,7 @@
 </script>
 
 <template>
-  <div :class="[theme, { hasError: errors.length > 0 }]">
+  <div class="input" :class="[theme, { hasError: errors.length > 0 }]">
     <label :for=id>
       <span class="label">
         {{ label }}
@@ -72,14 +72,15 @@
       <Icon
         v-if=hasInputVisibilityToggle
         class="input-visibility-toggle"
-        nameWhenToggled="eye"
-        name="eye-off"
+        nameWhenToggled="view"
+        name="view--off"
+        :size=32
         type="toggle"
         v-model=toggleInputVisibilityStateRef
       />
     </div>
     <div class="errors" v-for="(error, i) in errors" :key=i>
-      <div>{{ error }}</div>
+      <div class="error">{{ error }}</div>
     </div>
   </div>
 </template>
@@ -129,11 +130,11 @@
     .input-visibility-toggle {
       position: absolute;
       right: 20px;
-      top: 13px;
+      top: 15px;
     }
   }
 
-  .errors div {
+  .errors .error {
     color: #ff0000;
     font-size: 14px;
     margin-left: 10px;
