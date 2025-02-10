@@ -92,7 +92,7 @@
     }"
     @click=click
   >
-    <Tooltip :text=tooltipRef :hide="! showTooltip">
+    <Tooltip :text=tooltipRef :hide=" ! showTooltip">
       <IconMake
         :name=nameRef
         :size=size
