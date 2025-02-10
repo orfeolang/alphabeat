@@ -1,71 +1,111 @@
 <script setup lang="ts">
+  import IconMake from './icons/IconMake.vue'
   import Tooltip from './Tooltip.vue'
   import { iconNameType } from '../../helpers/type'
-  import { computed } from 'vue'
+  import { ref, computed } from 'vue'
 
   const emit = defineEmits(['update:modelValue'])
 
   interface Props {
     colorActive?: boolean
     colorHover?: boolean
+    containerSize?: number
     disabled?: boolean
     modelValue?: boolean
     name: iconNameType
     nameWhenToggled?: iconNameType
     showTooltip?: boolean
+    size?: number
     tooltip?: string
+    tooltipWhenToggled?: string
     type?: 'button' | 'static' | 'toggle'
   }
 
   const {
     colorActive = true,
     colorHover = true,
+    containerSize,
     disabled = false,
     modelValue = false,
     name,
     nameWhenToggled,
     showTooltip = false,
+    size = 24,
     tooltip,
+    tooltipWhenToggled,
     type = 'static',
   } = defineProps<Props>()
+
+  const toggledRef = ref(modelValue)
+
+  const containerSizeRef = computed(() =>
+    containerSize ?? size
+  )
 
   const nameWhenToggledRef = computed(() =>
     nameWhenToggled ?? name
   )
 
-  const tooltipRef = computed(() =>
+  const tooltipWhenNotToggledRef = computed(() =>
     tooltip ?? name
   )
 
-  const iconClassRef = computed(() =>
-    'icon-' + (modelValue ? nameWhenToggledRef.value : name)
+  const tooltipWhenToggledRef = computed(() =>
+    tooltipWhenToggled ?? tooltipWhenNotToggledRef.value
+  )
+
+  const nameRef = computed(() =>
+    toggledRef.value
+      ? nameWhenToggledRef.value
+      : name
+  )
+
+  const tooltipRef = computed(() =>
+    toggledRef.value
+      ? tooltipWhenToggledRef.value
+      : tooltipWhenNotToggledRef.value
   )
 
   const classObjectRef = computed(() => ({
-    [iconClassRef.value]: true,
-    clickable: ! disabled,
+    clickable: ! disabled && type !== 'static',
     disabled: disabled,
     'click-color': colorActive && ! disabled && type === 'button',
-    'hover-color': colorHover && ! disabled,
-    'toggled-color': colorActive && type === 'toggle' && modelValue,
+    'hover-color': colorHover && ! disabled && type !== 'static',
+    'toggled-color': colorActive && type === 'toggle' && toggledRef.value,
   }))
 
   const click = () => {
     if (type === 'toggle' && ! disabled) {
-      emit('update:modelValue', ! modelValue)
+      toggledRef.value = ! toggledRef.value
+      emit('update:modelValue', toggledRef.value)
     }
   }
 </script>
 
 <template>
-  <Tooltip :text=tooltipRef :hide="! showTooltip">
-    <div class="icon" :class=classObjectRef @click=click></div>
-  </Tooltip>
+  <div
+    class="icon"
+    :class=classObjectRef
+    :style="{
+      'height': containerSizeRef + 'px',
+      'width': containerSizeRef  + 'px'
+    }"
+    @click=click
+  >
+    <Tooltip :text=tooltipRef :hide="! showTooltip">
+      <IconMake
+        :name=nameRef
+        :size=size
+      />
+    </Tooltip>
+  </div>
 </template>
 
 <style scoped>
   .icon {
-    font-size: 32px;
+    color: #555;
+    display: flex;
+    justify-content: space-around;
 
     &.clickable {
       cursor: pointer;
@@ -75,16 +115,21 @@
       opacity: 0.3;
     }
 
-    &.click-color:active {
-      color: green;
+    &.hover-color:hover {
+      color: #555555aa;
     }
 
-    &.hover-color:hover {
-      opacity: 0.8;
+    /* Note: Must come after &.hover-color:hover */
+    &.click-color:active {
+      color: #ff00ff;
     }
 
     &.toggled-color {
-      color: green;
+      color: #00ff00;
+    }
+
+    &.toggled-color.hover-color:hover {
+      color: #00ff00aa;
     }
   }
 </style>
