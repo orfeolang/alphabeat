@@ -24,6 +24,10 @@
     text-align: center;
     transition: 0.4s;
 
+    &:hover {
+      opacity: 1;
+    }
+
     &.dark {
       background-image: linear-gradient(
         to right, #04AA6D, #222244
@@ -36,12 +40,8 @@
       color: #fff;
 
       &:hover {
-        color: crimson;
+        color: #ff0000;
       }
     }
-  }
-
-  .button:hover {
-    opacity: 1;
   }
 </style>
