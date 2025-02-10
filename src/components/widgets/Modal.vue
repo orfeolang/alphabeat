@@ -1,3 +1,8 @@
+<!--
+  Build better dialog
+  https://www.youtube.com/watch?v=ZNFSQtqwNX4&t=39s
+-->
+
 <script setup lang="ts">
   import Button from './Button.vue'
 
