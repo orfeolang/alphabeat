@@ -33,7 +33,6 @@ type iconNameType =
   | 'undo'
   | 'view'
   | 'view--off'
-  | 'workflow-automation'
 
 export {
   type iconNameType

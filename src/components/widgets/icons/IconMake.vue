@@ -35,7 +35,6 @@
   import UndoPath                from './paths/Undo.vue'
   import ViewPath                from './paths/View.vue'
   import ViewOffPath             from './paths/ViewOff.vue'
-  import WorkflowAutomationPath  from './paths/WorkflowAutomation.vue'
 
   interface Props {
     name: iconNameType
@@ -95,6 +94,5 @@
     <template v-else-if="name === 'undo'"><UndoPath /></template>
     <template v-else-if="name === 'view'"><ViewPath /></template>
     <template v-else-if="name === 'view--off'"><ViewOffPath /></template>
-    <template v-else-if="name === 'workflow-automation'"><WorkflowAutomationPath /></template>
   </svg>
 </template>
