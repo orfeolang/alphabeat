@@ -3,12 +3,12 @@
   import { useTemplateRef, onMounted } from 'vue'
 
   const props = defineProps<{
-    cursorColor: string
     height: number|"auto"
-    progressColor: string
-    url: string
-    waveColor: string
     width: number|"auto"
+    cursorColor: string
+    progressColor: string
+    waveColor: string
+    url: string
   }>()
 
   const containerRef = useTemplateRef('container')
@@ -20,14 +20,14 @@
       // We could use 'MediaElement' for other browsers.
       backend:      'WebAudio',
       container:     el,
-      cursorColor:   props.cursorColor,
-      height:        props.height,
       hideScrollbar: true,
       interact:      false,
-      progressColor: props.progressColor,
-      url:           props.url,
-      waveColor:     props.waveColor,
+      height:        props.height,
       width:         props.width,
+      cursorColor:   props.cursorColor,
+      progressColor: props.progressColor,
+      waveColor:     props.waveColor,
+      url:           props.url,
     })
 
      wavesurfer.on('ready', () => {
