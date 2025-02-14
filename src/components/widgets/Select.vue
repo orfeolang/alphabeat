@@ -38,7 +38,7 @@
       @click="isOpenRef = ! isOpenRef"
     >
       {{ selectedRef }}
-      <Icon name="caret--down" />
+      <Icon name="caret--down" :size=20 />
     </div>
 
     <div class="items" :class="{ 'hide': ! isOpenRef }">
@@ -61,23 +61,22 @@
 <style scoped>
   .select {
     font-size: 16px;
-    height: 47px;
-    line-height: 47px;
+    height: 42px;
+    line-height: 42px;
     outline: none;
     position: relative;
     text-align: left;
-    width: 100px;
+    width: 100%;
 
     .selection {
       align-items: center;
-      background-color: #0a0a0a;
+      background: #0a0a0a;
       border: 1px solid #666666;
-      border-radius: 6px; border-radius: 0;
       color: #fff;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
-      padding: 0 5px 0 16px;
+      padding: 0 5px 0 10px;
       user-select: none;
 
       &.open {
@@ -86,7 +85,7 @@
     }
 
     .items {
-      background-color: #0a0a0a;
+      background: #0a0a0a;
       border-bottom: 1px solid #ad8225;
       border-left: 1px solid #ad8225;
       border-right: 1px solid #ad8225;
@@ -95,7 +94,7 @@
       overflow: hidden;
       position: absolute;
       right: 0;
-      z-index: 1;
+      z-index: 3; /* To go over Wavesurfer. */
 
       &.hide {
         display: none;
