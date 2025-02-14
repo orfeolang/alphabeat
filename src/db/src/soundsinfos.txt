@@ -28,7 +28,7 @@ synth_pssht   Daggorath_scorpion   CC0 Douglas_J._Morgan  08_pssht.wav          
 synth_pssst   Daggorath_snake      CC0 Douglas_J._Morgan  06_pssst.wav                   https://github.com/gondur/dungeons-of-daggorath/tree/master/sound
 synth_squeak  Daggorath_spider     CC0 Douglas_J._Morgan  00_squeak.wav                  https://github.com/gondur/dungeons-of-daggorath/tree/master/sound
 synth_wee     Electronic_rain      CC0 soneproject        sfx3.flac                      https://freesound.org/s/252818
-synth_whoosh  Daggorath_miss       CC0 Douglas_J._Morgan  10_whoosh.wav                  https://github.com/gondur/dungeons-of-daggorath/tree/master/sound
+synth_woosh   Daggorath_miss       CC0 Douglas_J._Morgan  10_whoosh.wav                  https://github.com/gondur/dungeons-of-daggorath/tree/master/sound
 voice_deux    Spoken:_"deux"       A3  sergeeo            Numbers_in_French              https://freesound.org/s/177269
 voice_four    Spoken:_"four"       CC0 EnjoyPA            Counting_from_1_to_20.WAV      https://freesound.org/s/203066
 voice_hahi    Spoken:_"ha!"        A3  BluePaint          Ha-Ha                          https://freesound.org/s/429082

@@ -6,7 +6,7 @@ klink
 pssht
 pssst
 squeak
-whoosh
+woosh
 clap1
 clap2
 kiss
