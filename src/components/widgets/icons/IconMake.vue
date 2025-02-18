@@ -28,6 +28,7 @@
   import PlayFilledPath          from './paths/PlayFilled.vue'
   import RedoPath                from './paths/Redo.vue'
   import RepeatPath              from './paths/Repeat.vue'
+  import SearchPath              from './paths/Search.vue'
   import StopPath                from './paths/Stop.vue'
   import StopFilledPath          from './paths/StopFilled.vue'
   import SubtractPath            from './paths/Subtract.vue'
@@ -87,6 +88,7 @@
     <template v-else-if="name === 'play--filled'"><PlayFilledPath /></template>
     <template v-else-if="name === 'redo'"><RedoPath /></template>
     <template v-else-if="name === 'repeat'"><RepeatPath /></template>
+    <template v-else-if="name === 'search'"><SearchPath /></template>
     <template v-else-if="name === 'stop'"><StopPath /></template>
     <template v-else-if="name === 'stop--filled'"><StopFilledPath /></template>
     <template v-else-if="name === 'subtract'"><SubtractPath /></template>

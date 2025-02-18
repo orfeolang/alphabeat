@@ -26,6 +26,7 @@ type iconNameType =
   | 'play--filled'
   | 'redo'
   | 'repeat'
+  | 'search'
   | 'stop'
   | 'stop--filled'
   | 'subtract'
