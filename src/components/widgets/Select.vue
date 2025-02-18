@@ -33,12 +33,12 @@
 <template>
   <div class="select" :tabindex="tabindex" @blur="isOpenRef = false">
     <div
-      class="selection"
+      class="selection-wrapper"
       :class="{ open: isOpenRef }"
       @click="isOpenRef = ! isOpenRef"
     >
-      {{ selectedRef }}
-      <Icon name="caret--down" :size=20 />
+      <div class="selection">{{ selectedRef }}</div>
+      <Icon name="caret--down" :size=24 />
     </div>
 
     <div class="items" :class="{ 'hide': ! isOpenRef }">
@@ -68,13 +68,14 @@
     text-align: left;
     width: 100%;
 
-    .selection {
+    .selection-wrapper {
       align-items: center;
       background: #0a0a0a;
       border: 1px solid #666666;
       color: #fff;
       cursor: pointer;
       display: flex;
+      height: 42px;
       justify-content: space-between;
       padding: 0 5px 0 10px;
       user-select: none;
@@ -103,7 +104,8 @@
       .item {
         color: #fff;
         cursor: pointer;
-        padding-left: 1em;
+        height: 42px;
+        padding-left: 10px;
         user-select: none;
 
         &:hover {
