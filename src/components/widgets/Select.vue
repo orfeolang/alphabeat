@@ -1,18 +1,23 @@
 <script setup lang="ts">
   import Icon from './Icon.vue'
+  import Tooltip from './Tooltip.vue'
   import { ref, onMounted } from 'vue'
   const emit = defineEmits(['input'])
 
   interface Props {
     defaultOption?: string
     options: Array<String>
+    showTooltip?: boolean
     tabindex?: number
+    tooltip?: string
   }
 
   const {
     defaultOption,
     options,
+    showTooltip = false,
     tabindex = 0,
+    tooltip,
   } = defineProps<Props>()
 
   const selectedRef = ref(
@@ -31,35 +36,38 @@
 </script>
 
 <template>
-  <div class="select" :tabindex="tabindex" @blur="isOpenRef = false">
-    <div
-      class="selection-wrapper"
-      :class="{ open: isOpenRef }"
-      @click="isOpenRef = ! isOpenRef"
-    >
-      <div class="selection">{{ selectedRef }}</div>
-      <Icon name="caret--down" :size=24 />
-    </div>
-
-    <div class="items" :class="{ 'hide': ! isOpenRef }">
-      <div
-        class="item"
-        v-for="(option, i) of options"
-        :key="i"
-        @click="
-          isOpenRef = false;
-          selectedRef = option;
-          $emit('input', option);
-        "
-      >
-        {{ option }}
+  <div class="select">
+    <Tooltip :text=tooltip :hide=" ! showTooltip">
+      <div class="content" :tabindex="tabindex" @blur="isOpenRef = false">
+        <div
+          class="selection-wrapper"
+          :class="{ open: isOpenRef }"
+          @click="isOpenRef = ! isOpenRef"
+        >
+          <div class="selection">{{ selectedRef }}</div>
+          <Icon name="caret--down" :size=24 />
+        </div>
+        <div class="items" :class="{ 'hide': ! isOpenRef }">
+          <div
+             class="item"
+             v-for="(option, i) of options"
+            :key="i"
+            @click="
+              isOpenRef = false;
+              selectedRef = option;
+              $emit('input', option);
+            "
+          >
+            {{ option }}
+          </div>
+        </div>
       </div>
-    </div>
+    </Tooltip>
   </div>
 </template>
 
 <style scoped>
-  .select {
+  .content {
     font-size: 16px;
     height: 42px;
     line-height: 42px;
